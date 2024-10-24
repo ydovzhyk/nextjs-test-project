@@ -1,2 +1,2 @@
-# next.js
+# nextjs-test-project
  test project
