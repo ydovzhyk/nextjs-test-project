@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, Reducer } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -8,11 +8,18 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
+  PersistedState,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+import authReducer from './auth/auth-slice';
+import technicalReducer from './technical/technical-slice';
+import { IAuthStore } from '../types/store/store-auth';
 
-import auth from './auth/auth-slice';
-import technical from './technical/technical-slice';
+const isServer = typeof window === 'undefined';
+
+let storage;
+if (!isServer) {
+  storage = require('redux-persist/lib/storage').default;
+}
 
 const persistConfig = {
   key: 'auth-sid',
@@ -20,16 +27,16 @@ const persistConfig = {
   whitelist: ['sid', 'accessToken', 'refreshToken'],
 };
 
-const persistedReducer = persistReducer(persistConfig, auth);
+type AuthState = IAuthStore & Partial<{ _persist: PersistedState }>;
 
-// Ось оголошення типів для RootState та AppDispatch
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+const finalAuthReducer: Reducer<AuthState> = isServer
+  ? (authReducer as unknown as Reducer<AuthState>)
+  : (persistReducer(persistConfig, authReducer) as unknown as Reducer<AuthState>);
 
 export const store = configureStore({
   reducer: {
-    auth: persistedReducer,
-    technical: technical,
+    auth: finalAuthReducer,
+    technical: technicalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -39,5 +46,6 @@ export const store = configureStore({
     }),
 });
 
-
-export const persistor = persistStore(store);
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const persistor = isServer ? null : persistStore(store);
