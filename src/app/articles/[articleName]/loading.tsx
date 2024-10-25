@@ -1,3 +1,5 @@
+import LoaderSpinner from "../../shared/components/loader/loader";
+
 export default function ArticlesLoading() {
-  return <>Articles are on the way...</>;
+  return <><LoaderSpinner /></>;
 }

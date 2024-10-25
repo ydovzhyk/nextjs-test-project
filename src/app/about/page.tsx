@@ -1,4 +1,3 @@
-import RootLayout from '../layout';
 import Image from 'next/image';
 import myImage from './me.jpg';
 import s from './about.module.scss';

@@ -24,13 +24,13 @@ const AuthInfo = () => {
         <div className={s.userInfo}>
           <div className={s.userWrapper}>
             <div className={s.wrapper}>
-              <Link className={s.userText} href="/auth/login">
+              <Link className={s.userText} href="/login">
                 <span style={{ marginRight: "-5px" }}>Login</span>
               </Link>
             </div>
             <PiLineVertical size={24} color="var(--text-color)" />
             <div className={s.wrapper}>
-              <Link className={s.userText} href="/auth/registration">
+              <Link className={s.userText} href="/registration">
                 <span style={{ marginLeft: "-5px" }}>Register</span>
               </Link>
             </div>

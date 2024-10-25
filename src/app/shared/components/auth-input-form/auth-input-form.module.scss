@@ -1,0 +1,20 @@
+@use '../../../styles/mixins';
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 240px;
+  gap: 15px;
+  @include mixins.mq(tablet) {
+    gap: 0px;
+    width: 300px;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

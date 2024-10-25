@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { IUserDataRegister, IUserDataLogin } from '../../types/auth/auth';
+import { IAuthUserData } from '../../types/auth/auth';
 import { IRegistrationResponse, ILoginResponse, ILogoutResponse, IAuth } from '../../types/auth/axios-auth';
 
 export const register = createAsyncThunk(
   'auth/register',
-  async (userData: IUserDataRegister, { rejectWithValue }) => {
+  async (userData: IAuthUserData, { rejectWithValue }) => {
     try {
         // const data: IRegistrationResponse = await axiosRegister(userData);
         // return data;
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'auth/login',
-  async (userData: IUserDataLogin, { rejectWithValue }) => {
+  async (userData: IAuthUserData, { rejectWithValue }) => {
     try {
       // const data: ILoginResponse = await axiosLogin(userData);
       // const { accessToken, refreshToken, sid } = data;
