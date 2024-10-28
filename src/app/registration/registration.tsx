@@ -4,14 +4,15 @@ import { useSelector } from "react-redux";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import AuthInputForm from "../shared/components/auth-input-form/auth-input-form";
-import { getLogin } from "../redux/auth/auth-selectors";
 import BackLink from '../shared/components/back-link/back-link';
+import { getAuthError, getUser } from '../redux/auth/auth-selectors';
 import { FcGoogle } from "react-icons/fc";
 
 import s from "./registration.module.scss";
 
 const Registration = () => {
-  const isLogin = useSelector(getLogin);
+  const user = useSelector(getUser);
+  const errorRegister = useSelector(getAuthError);
   const pathname = usePathname();
   const router = useRouter();
   const [currentOrigin, setCurrentOrigin] = useState('');
@@ -22,16 +23,17 @@ const Registration = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (!errorRegister && user.id) {
+    router.replace(`/login`);
+  }
+  }, [errorRegister, router, user]);
+
   const REACT_APP_API_URL = "https://test-task-backend-34db7d47d9c8.herokuapp.com";
 
   const googleText = pathname === "/login"
     ? "Sign in quickly with Google"
     : "Sign up quickly with Google";
-
-  if (isLogin) {
-    router.replace(`/`);
-    return null;
-  }
 
   return (
     <section className={s.auth}>

@@ -13,6 +13,7 @@ import {
 import authReducer from './auth/auth-slice';
 import technicalReducer from './technical/technical-slice';
 import { IAuthStore } from '../types/store/store-auth';
+import { setupInterceptors } from '../api/auth';
 
 const isServer = typeof window === 'undefined';
 
@@ -49,3 +50,6 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const persistor = isServer ? null : persistStore(store);
+
+//After creating the store, we grant axios access to it
+setupInterceptors(store);

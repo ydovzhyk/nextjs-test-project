@@ -48,13 +48,15 @@ const AuthInfo = () => {
               />
             )}
           </div>
-          <span className={s.userName}>{user.username}</span>
+          <span className={s.text}>Hi, {user.username}</span>
           <PiLineVertical
             size={24}
             color="var(--text-color)"
             style={{ marginLeft: "-10px", marginRight: "-10px" }}
           />
-          <button type="button" onClick={onLogout} className={s.btnExit}>logout</button>
+          <div className={s.btnWrapper}>
+            <button type="button" onClick={onLogout} className={s.btnExit}>logout</button>
+          </div>
         </div>
       )}
       {isUserLogin && (screenType === "isMobile") && (

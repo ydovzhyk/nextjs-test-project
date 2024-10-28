@@ -22,16 +22,17 @@ const Login = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isLogin) {
+      router.replace(`/`);
+    }
+  }, [isLogin, router]);
+
   const REACT_APP_API_URL = "https://test-task-backend-34db7d47d9c8.herokuapp.com";
 
   const googleText = pathname === "/login"
     ? "Sign in quickly with Google"
     : "Sign up quickly with Google";
-
-  if (isLogin) {
-    router.replace(`/`);
-    return null;
-  }
 
   return (
     <section className={s.auth}>

@@ -20,6 +20,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1;
+  white-space: nowrap;
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -27,6 +28,17 @@
 
 .userText:hover {
   font-weight: 600;
+}
+
+.text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .userPhoto {
@@ -39,11 +51,21 @@
 
 .userBlock {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.userInfoSide {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .wrapper {
@@ -53,15 +75,23 @@
   align-items: center;
 }
 
+.btnWrapper {
+  width: 55px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .btnExit {
-  font-weight: 600;
-  color: var(--accent-color);
+  font-weight: 400;
+  color: var(--text-color);
   background-color: transparent;
   transition:
     box-shadow var(--transition-duration) var(--timing-function),
     background-color var(--transition-duration) var(--timing-function),
     color var(--transition-duration) var(--timing-function);
   &:hover {
-    color: var(--accent-hover-color);
+    font-weight: 600;
   }
 }

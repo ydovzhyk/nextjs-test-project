@@ -3,6 +3,7 @@ import { StoreProvider } from './redux/store-provider';
 import Header from './header/header';
 import Footer from './footer/footer';
 import MediaQuery from './shared/media-query/media-query';
+import AuthProvider from './shared/auth-provider/auth-provider';
 import './styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -29,6 +30,7 @@ export default function RootLayout({
             justifyContent: 'space-between',
           }}>
             <MediaQuery />
+            <AuthProvider />
             <Header />
             <main style={{ flex: 1 }}>{children}</main>
             <Footer />

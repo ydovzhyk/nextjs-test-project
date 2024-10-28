@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import { axiosRegister, axiosLogin, axiosLogout, axiosGetCurrentUser } from "../../api/auth";
 import { IAuthUserData } from '../../types/auth/auth';
 import { IRegistrationResponse, ILoginResponse, ILogoutResponse, IAuth } from '../../types/auth/axios-auth';
 
@@ -7,8 +7,8 @@ export const register = createAsyncThunk(
   'auth/register',
   async (userData: IAuthUserData, { rejectWithValue }) => {
     try {
-        // const data: IRegistrationResponse = await axiosRegister(userData);
-        // return data;
+        const data: IRegistrationResponse = await axiosRegister(userData);
+        return data;
     } catch (error: any) {
         const { data, status } = error.response || {};
         const customError = { data, status };
@@ -21,11 +21,8 @@ export const login = createAsyncThunk(
   'auth/login',
   async (userData: IAuthUserData, { rejectWithValue }) => {
     try {
-      // const data: ILoginResponse = await axiosLogin(userData);
-      // const { accessToken, refreshToken, sid } = data;
-      // const authData = { accessToken, refreshToken, sid };
-      // localStorage.setItem('notes-organizer.authData', JSON.stringify(authData));
-      // return data;
+      const data: ILoginResponse = await axiosLogin(userData);
+      return data;
     } catch (error: any) {
         const { data, status } = error.response || {};
         const customError = { data, status };
@@ -38,9 +35,9 @@ export const logout = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
-        // const data: ILogoutResponse = await axiosLogout();
-        // localStorage.removeItem('notes-organizer.authData');
-        // return data;
+        const data: ILogoutResponse = await axiosLogout();
+        localStorage.removeItem('notes-organizer.authData');
+        return data;
     } catch (error: any) {
         const { data, status } = error.response || {};
         const customError = { data, status };
@@ -51,13 +48,10 @@ export const logout = createAsyncThunk(
 
 export const getCurrentUser = createAsyncThunk(
   'auth/current',
-  async (_, { rejectWithValue }) => {
+  async (userData: IAuth, { rejectWithValue }) => {
     try {
-      // const authDataJSON = localStorage.getItem('notes-organizer.authData')!;
-      // const authData = JSON.parse(authDataJSON);
-      // const userData: IAuth = authData;
-      // const data: ILoginResponse = await axiosGetCurrentUser(userData);
-      // return data;
+      const data: ILoginResponse = await axiosGetCurrentUser(userData);
+      return data;
     } catch (error: any) {
         const { data, status } = error.response || {};
         const customError = { data, status };

@@ -1,4 +1,3 @@
-
 import s from "./Button.module.scss";
 
 interface IBottonProps {

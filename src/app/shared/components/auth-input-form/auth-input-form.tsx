@@ -1,8 +1,7 @@
-"use client"
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { usePathname } from "next/navigation";
 import { AppDispatch } from '../../../redux/store';
+import { usePathname } from "next/navigation";
 import { register, login } from "@/app/redux/auth/auth-operations";
 import loadAvatar from "@/app/helpers/load-avatar";
 import TextField from "../text-field/text-field";
@@ -38,7 +37,8 @@ const AuthInputForm = ({ typeOperation }: AuthInputFormProps) => {
             const userData = { ...data, userAvatar }; 
             dispatch(register(userData));
         } else {
-            dispatch(login(data));
+            const userData = {email: data.email, password: data.password}
+            dispatch(login(userData));
         }
         reset();
     };

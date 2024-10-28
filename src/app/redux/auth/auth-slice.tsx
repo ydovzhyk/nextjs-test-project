@@ -47,6 +47,11 @@ const auth = createSlice({
         clearUserMessage: store => {
             store.message = '';
         },
+        setRefreshUserData: (store, action) => {
+            store.sid = action.payload.sid;
+            store.accessToken = action.payload.accessToken;
+            store.refreshToken = action.payload.refreshToken;
+        },
     },
 
 
@@ -116,5 +121,6 @@ export default auth.reducer;
 export const {
   clearUser,
   clearUserError,
-  clearUserMessage,
+    clearUserMessage,
+  setRefreshUserData,
 } = auth.actions;
