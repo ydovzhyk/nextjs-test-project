@@ -19,13 +19,13 @@ const Footer = () => {
   const showHeaderFooter = isAllowedRoute(pathname);
 
     return !showHeaderFooter ? null : (
-      <div className={s.footer}>
+      <footer className={s.footer}>
         <div className="container">
             <div className={s.footer__content}>
                 <Image src={logo} alt='Logo' width={70} height={70} />
             </div>
         </div>
-      </div>
+      </footer>
   );
 };
 

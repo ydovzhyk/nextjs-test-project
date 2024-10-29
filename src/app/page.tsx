@@ -1,15 +1,15 @@
 import { getAllArticles } from './(server)/api';
 import { AppLink } from './shared/components/app-link/app-link';
 import { ArticlePreview } from './shared/components/article-preview/ArticlePreview';
-import s from './page.module.scss';
 
+import s from './page.module.scss';
 const ARTICLES_PER_PAGE = 10;
 
 export default async function Home({
   searchParams,
 }: {
   searchParams: Record<string, string>;
-}) {
+  }) {
   const page = Number.parseInt(searchParams['page'] ?? 1);
   const allArticles = await getAllArticles();
 

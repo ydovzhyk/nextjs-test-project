@@ -65,6 +65,7 @@ const AuthInputForm = ({ typeOperation }: AuthInputFormProps) => {
                     control={control}
                     handleChange={onChange}
                     error={fieldState.error}
+                    autoComplete="off"
                     {...fields.username}
                 />
             )}

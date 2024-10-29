@@ -4,6 +4,7 @@ import Header from './header/header';
 import Footer from './footer/footer';
 import MediaQuery from './shared/media-query/media-query';
 import AuthProvider from './shared/auth-provider/auth-provider';
+import { HeaderProvider } from './helpers/HeaderContext';
 import ModalWindow from './shared/components/modal-window-message/modal-window-message';
 import './styles/globals.scss';
 
@@ -33,9 +34,11 @@ export default function RootLayout({
             <ModalWindow />
             <MediaQuery />
             <AuthProvider />
-            <Header />
-            <main style={{ flex: 1 }}>{children}</main>
-            <Footer />
+            <HeaderProvider >
+              <Header />
+              <main style={{ flex: 1 }}>{children}</main>
+              <Footer />
+            </HeaderProvider>
           </div>
         </body>
       </StoreProvider>
