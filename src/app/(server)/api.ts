@@ -1,4 +1,4 @@
-import { ERRORS } from '../errors';
+import { ERRORS } from '../helpers/errors';
 import articles from './db.json';
 import { delayed } from './delay';
 

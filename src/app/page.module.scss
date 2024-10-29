@@ -1,0 +1,47 @@
+@use './styles/mixins';
+
+.home {
+  padding: 40px 0;
+  @include mixins.mq(tablet) {
+    padding: 45px 0;
+  }
+  @include mixins.mq(desktop) {
+    padding: 50px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: var(--txt-color-main);
+  }
+
+  &__listWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    @include mixins.mq(tablet) {
+      gap: 15px;
+    }
+    @include mixins.mq(desktop) {
+      gap: 20px;
+    }
+  }
+
+  &__list {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    color: var(--txt-color-main);
+  }
+}

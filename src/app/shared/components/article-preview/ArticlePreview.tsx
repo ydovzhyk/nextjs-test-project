@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { ROUTING } from './routing';
-import { AppLink } from './shared/components/app-link/app-link';
-import { articleStorage } from './ArticleStorage';
+import { ROUTING } from '../../../helpers/routing';
+import { AppLink } from '../app-link/app-link';
+import { articleStorage } from '../../../helpers/ArticleStorage';
 
 type ArticlePreviewProps = {
   name: string;

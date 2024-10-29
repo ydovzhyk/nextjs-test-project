@@ -11,7 +11,6 @@ const Navigation = () => {
 
     return (
       <div className={s.navigation}>
-      <div className="container">
         <nav className={s.navigation__content}>
           <ul className={s.navigation__wrapper}>
             <li>
@@ -31,7 +30,6 @@ const Navigation = () => {
             </li>
           </ul>
         </nav>
-      </div>
     </div>
   );
 };

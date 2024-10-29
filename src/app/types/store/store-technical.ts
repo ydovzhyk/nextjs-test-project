@@ -3,4 +3,5 @@ export interface ITechnicalState {
   message: string;
   hideHeaderFooter: boolean;
   screenType: string;
+  modalWindowStatus: boolean;
 }

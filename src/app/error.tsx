@@ -1,10 +1,16 @@
 'use client';
 
-import { ERRORS } from './errors';
+import { useDispatch } from "react-redux";
+import { AppDispatch } from './redux/store';
+import { ERRORS } from './helpers/errors';
+import { setTechnicalError } from './redux/technical/technical-slice';
 
 export default function HomePageError({ error }: { error: Error }) {
+  const dispatch: AppDispatch = useDispatch();
   if (error.message === ERRORS.NOT_FOUND) {
-    return <>Articles not found</>;
+    dispatch(setTechnicalError("Articles not found"));
+    return null;
   }
-  return <> Something went wrong</>;
+  dispatch(setTechnicalError("Something went wrong"));
+    return null;
 }

@@ -1,6 +1,6 @@
 import { getAllArticles } from './(server)/api';
 import { AppLink } from './shared/components/app-link/app-link';
-import { ArticlePreview } from './ArticlePreview';
+import { ArticlePreview } from './shared/components/article-preview/ArticlePreview';
 import s from './page.module.scss';
 
 const ARTICLES_PER_PAGE = 10;
@@ -27,16 +27,18 @@ export default async function Home({
   return (
     <div className={s.home}>
       <div className='container'>
-        <h1>Drag13 blog, page {page}</h1>
-        <ul>
-          {articles.map((article) => (
-          <li key={article.name}>
-            <ArticlePreview name={article.name} text={article.header} />
-          </li>
-          ))}
+        <div className={s.home__content}>
+          <h1 className={s.home__title}>Drag13 blog, page {page}</h1>
+          <ul className={s.home__listWrapper}>
+            {articles.map((article) => (
+              <li key={article.name} className={s.home__list}>
+                <ArticlePreview name={article.name} text={article.header} />
+              </li>
+            ))}
         </ul>
         <AppLink href={nextPageUrl}>Next</AppLink>
-      </div>
+        </div>
+        </div>
     </div>
   );
 }

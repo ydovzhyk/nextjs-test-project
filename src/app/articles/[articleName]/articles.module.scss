@@ -1,6 +1,6 @@
-@use '../styles/mixins';
+@use '../../styles/mixins';
 
-.about {
+.article {
   padding: 40px 0;
   @include mixins.mq(tablet) {
     padding: 45px 0;
@@ -11,7 +11,7 @@
 
   &__content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
   }
 }

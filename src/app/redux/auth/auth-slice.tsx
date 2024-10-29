@@ -121,6 +121,6 @@ export default auth.reducer;
 export const {
   clearUser,
   clearUserError,
-    clearUserMessage,
+  clearUserMessage,
   setRefreshUserData,
 } = auth.actions;

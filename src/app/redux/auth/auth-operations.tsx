@@ -33,10 +33,9 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'auth/logout',
-  async (_, { rejectWithValue }) => {
+  async (_, { rejectWithValue, dispatch }) => {
     try {
         const data: ILogoutResponse = await axiosLogout();
-        localStorage.removeItem('notes-organizer.authData');
         return data;
     } catch (error: any) {
         const { data, status } = error.response || {};

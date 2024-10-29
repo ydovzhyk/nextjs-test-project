@@ -6,6 +6,7 @@ const initialState: ITechnicalState = {
     message: '',
     hideHeaderFooter: false,
     screenType: 'isDesctop',
+    modalWindowStatus: false,
 };
 
 const technical = createSlice({
@@ -19,7 +20,13 @@ const technical = createSlice({
             store.message = '';
         },
         setScreenType: (store, action) => {
-            store.screenType= action.payload;
+            store.screenType = action.payload;
+        },
+        setModalWindowStatus: (store, action) => {
+            store.modalWindowStatus= action.payload;
+        },
+        setTechnicalError: (store, action) => {
+            store.error = action.payload;
         },
     },
 
@@ -30,7 +37,9 @@ const technical = createSlice({
 export default technical.reducer;
 
 export const {
-  clearTechnicalError,
+    clearTechnicalError,
     clearTechnicalMessage,
-  setScreenType,
+    setScreenType,
+    setModalWindowStatus,
+    setTechnicalError,
 } = technical.actions;

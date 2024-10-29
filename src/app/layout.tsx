@@ -4,6 +4,7 @@ import Header from './header/header';
 import Footer from './footer/footer';
 import MediaQuery from './shared/media-query/media-query';
 import AuthProvider from './shared/auth-provider/auth-provider';
+import ModalWindow from './shared/components/modal-window-message/modal-window-message';
 import './styles/globals.scss';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -29,6 +30,7 @@ export default function RootLayout({
             flexDirection: 'column',
             justifyContent: 'space-between',
           }}>
+            <ModalWindow />
             <MediaQuery />
             <AuthProvider />
             <Header />
