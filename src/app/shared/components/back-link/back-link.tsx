@@ -1,6 +1,8 @@
 "use client"
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import TranslatedText from "../../translating/translated-text";
+
 import s from "./back-link.module.scss";
 
 const BackLink = () => {
@@ -9,9 +11,9 @@ const BackLink = () => {
 
   return (
     <Link href={backLinkHref} passHref>
-        <button type="button" className={s.btnContent}>
-            Go back
-        </button>
+      <button type="button" className={s.btnContent}>
+        <TranslatedText text="Go back" />
+      </button>
     </Link>
   );
 };

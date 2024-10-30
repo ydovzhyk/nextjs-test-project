@@ -8,6 +8,7 @@ import TextField from "../text-field/text-field";
 import { fields } from "../text-field/fields";
 import Button from "../button/button";
 import { IAuthUserData } from "@/app/types/auth/auth";
+import { useTranslate } from "../../translating/translating";
 
 import s from "./auth-input-form.module.scss";
 
@@ -19,9 +20,7 @@ const AuthInputForm = ({ typeOperation }: AuthInputFormProps) => {
     const dispatch: AppDispatch = useDispatch();
     const pathname = usePathname();
 
-    const btnText = pathname === "/login"
-        ? "Login"
-        : "Register";
+    const btnText = useTranslate(pathname === "/login" ? "Login" : "Register");
 
     const { control, handleSubmit, reset } = useForm<IAuthUserData>({
     defaultValues: {

@@ -6,6 +6,7 @@ import AuthInfo from './auth-info/auth-info';
 import logo from '../../images/IT-logo.png';
 import Navigation from './navigation/navigation';
 import { useHeaderHeight } from '../helpers/HeaderContext';
+import TranslateMe from "../shared/translating/translating";
 import s from './header.module.scss';
 
 const allowedRoutes = ['/', '/about', '/articles'];
@@ -28,7 +29,10 @@ const Header = () => {
         <div className="container">
           <div className={s.header__content}>
             <Image src={logo} alt='Logo' width={70} height={70} />
-            <AuthInfo />
+            <div className={s.header__langAndAuth}>
+              <TranslateMe />
+              <AuthInfo />
+            </div>
           </div>
           <div className={s.header__navigation}>
             <Navigation />

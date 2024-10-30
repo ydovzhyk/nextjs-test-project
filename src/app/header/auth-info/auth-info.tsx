@@ -5,6 +5,7 @@ import { PiLineVertical } from "react-icons/pi";
 import { getScreenType } from "@/app/redux/technical/technical-selectors";
 import { getLogin, getUser } from "@/app/redux/auth/auth-selectors";
 import { logout } from "@/app/redux/auth/auth-operations";
+import TranslatedText from "../../shared/translating/translated-text";
 
 import s from "./auth-info.module.scss";
 
@@ -25,13 +26,13 @@ const AuthInfo = () => {
           <div className={s.userWrapper}>
             <div className={s.wrapper}>
               <Link className={s.userText} href="/login">
-                <span style={{ marginRight: "-5px" }}>Login</span>
+                <span style={{ marginRight: "-5px" }}><TranslatedText text="Login" /></span>
               </Link>
             </div>
             <PiLineVertical size={24} color="var(--text-color)" />
             <div className={s.wrapper}>
               <Link className={s.userText} href="/registration">
-                <span style={{ marginLeft: "-5px" }}>Register</span>
+                <span style={{ marginLeft: "-5px" }}><TranslatedText text="Registration" /></span>
               </Link>
             </div>
           </div>
@@ -55,13 +56,13 @@ const AuthInfo = () => {
             style={{ marginLeft: "-10px", marginRight: "-10px" }}
           />
           <div className={s.btnWrapper}>
-            <button type="button" onClick={onLogout} className={s.btnExit}>logout</button>
+            <button type="button" onClick={onLogout} className={s.btnExit}><TranslatedText text="exit" /></button>
           </div>
         </div>
       )}
       {isUserLogin && (screenType === "isMobile") && (
         <div className={s.userInfoSide}>
-          <button type="button" onClick={onLogout} className={s.btnExit}>logout</button>
+          <button type="button" onClick={onLogout} className={s.btnExit}><TranslatedText text="exit" /></button>
         </div>
       )}
     </>

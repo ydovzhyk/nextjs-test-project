@@ -7,6 +7,7 @@ import AuthInputForm from "../shared/components/auth-input-form/auth-input-form"
 import { getLogin } from "../redux/auth/auth-selectors";
 import BackLink from '../shared/components/back-link/back-link';
 import { FcGoogle } from "react-icons/fc";
+import TranslatedText from "../shared/translating/translated-text";
 
 import s from "./login.module.scss";
 
@@ -31,8 +32,8 @@ const Login = () => {
   const REACT_APP_API_URL = "https://test-task-backend-34db7d47d9c8.herokuapp.com";
 
   const googleText = pathname === "/login"
-    ? "Sign in quickly with Google"
-    : "Sign up quickly with Google";
+    ? <TranslatedText text="Sign in quickly with Google" />
+    : <TranslatedText text="Sign up quickly with Google" />;
 
   return (
     <section className={s.auth}>
@@ -40,10 +41,10 @@ const Login = () => {
         <div className={s.content}>
           <div className={s.linksWrapper}>
             <Link href="/login" className={pathname === "/login" ? `${s.link} ${s.active}` : s.link}>
-              <h2>Login</h2>
+              <h2><TranslatedText text="Login" /></h2>
             </Link>
             <Link href="/registration" className={pathname === "/registration" ? `${s.link} ${s.active}` : s.link}>
-                <h2>Registration</h2>
+                <h2><TranslatedText text="Registration" /></h2>
             </Link>
           </div>
           <div className={s.googleBtnContainer}>

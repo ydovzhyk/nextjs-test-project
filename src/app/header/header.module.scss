@@ -12,4 +12,11 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  &__langAndAuth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
 }
