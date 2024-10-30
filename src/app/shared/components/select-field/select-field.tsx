@@ -36,7 +36,7 @@ const SelectField: React.FC<ISelectFieldProps> = ({
   control: (provided: any, state) => ({
     ...provided,
     fontSize: isMobile ? '14px' : isTablet ? '15px' : '16px',
-    height: isMobile ? '38px' : isTablet ? '38px' : '38px',
+    height: isMobile ? '35px' : isTablet ? '35px' : '35px',
     color: 'var(--second-text-color)',
     pointerEvents: 'auto',
     borderColor: state.isFocused ? 'white' : provided.borderColor,
@@ -54,7 +54,7 @@ const SelectField: React.FC<ISelectFieldProps> = ({
         ...styles,
         backgroundColor: isDisabled ? undefined : backgroundColor,
         color: isDisabled ? '#ccc' : textColor,
-        height: isMobile ? '38px' : isTablet ? '38px' : '38px',
+        height: isMobile ? '35px' : isTablet ? '35px' : '35px',
         display: 'flex',
         alignItems: 'center',
         cursor: isDisabled ? 'not-allowed' : 'default',
@@ -68,6 +68,10 @@ const SelectField: React.FC<ISelectFieldProps> = ({
       ...provided,
       marginTop: isMobile ? '-8px' : isTablet ? '-8px' : '2px',
     }),
+    indicatorsContainer: (provided, state) => ({
+    ...provided,
+    padding: '0 6px',
+  }),
 };
 
   return (

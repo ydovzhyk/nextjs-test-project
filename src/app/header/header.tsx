@@ -29,10 +29,7 @@ const Header = () => {
         <div className="container">
           <div className={s.header__content}>
             <Image src={logo} alt='Logo' width={70} height={70} />
-            <div className={s.header__langAndAuth}>
-              <TranslateMe />
-              <AuthInfo />
-            </div>
+            <AuthInfo />
           </div>
           <div className={s.header__navigation}>
             <Navigation />

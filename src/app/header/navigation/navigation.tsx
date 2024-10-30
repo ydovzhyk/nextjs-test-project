@@ -1,5 +1,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import TranslateMe from "../../shared/translating/translating";
+
 import s from './navigation.module.scss';
 
 const Navigation = () => {
@@ -30,6 +32,9 @@ const Navigation = () => {
             </li>
           </ul>
         </nav>
+        <div className={s.navigation__translating}>
+          <TranslateMe />
+        </div>
     </div>
   );
 };
